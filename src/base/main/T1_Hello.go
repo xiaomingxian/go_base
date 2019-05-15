@@ -6,8 +6,46 @@ import (
 
 func main() {
 	//base()
-	changliang()
+	//常量
+	//changliang()
+	//运算符
+	//yunSuan()
+	//条件语句
+	caseYu() //select 未写
+
 }
+func caseYu() {
+	//if else  if嵌套
+	//没有三目运算
+	var a = 1
+	switch a {
+	case 1:
+		fmt.Println(a)
+	case 2:
+		fmt.Println(a)
+	case 3:
+		fmt.Println(a)
+
+	}
+
+}
+func yunSuan() {
+	/**
+	加减乘除 比较 位运算
+	*/
+
+	fmt.Println("+：", 1+2)
+	fmt.Println("-：", 1-2)
+	fmt.Println("x：", 1*2)
+	fmt.Println("/：", 1/2)
+	var a = 1
+	a++
+	fmt.Println("++:", a)
+	a--
+	fmt.Println("--:", a)
+
+}
+
 func changliang() {
 	//隐士定义
 	const name = "abc"
