@@ -12,9 +12,56 @@ func main() {
 	//yunSuan()
 	//条件语句
 	//caseYu()
-	//	select与并发
-	seAndBf()
+	//select与并发
+	//seAndBf()
+	//循环
+	//xunHuan()
+	//数组
+	shuZ()
+}
 
+func shuZ() {
+	//初始值0
+	var sz [10]int
+	fmt.Println(sz)
+	var sz2 = [...]int{1, 2, 3, 4, 5}
+	fmt.Println(sz2)
+}
+
+func xunHuan() {
+	//method1
+	for a := 0; a < 10; a++ {
+		fmt.Println(a)
+	}
+	//	method2
+	fmt.Println("------------------------method2----------------")
+	c := 1
+	d := 10
+	//	跳过本次循环并回到循环的开始语句 LOOP 处
+LOOP:
+	for c < d {
+		fmt.Println(c)
+		c++
+		if c == 8 {
+			fmt.Printf("break跳出for循环")
+			break
+		}
+		if c == 2 {
+			fmt.Printf("continue----\n")
+			continue
+		}
+		if c == 6 {
+			fmt.Printf("goto----\n")
+			goto LOOP
+		}
+	}
+	//	method3
+
+	nums := [5]int{1, 2, 3, 4, 5}
+	for i, j := range nums {
+		fmt.Printf("索引%d,元素%d\n", i, j)
+
+	}
 }
 
 func seAndBf() {
