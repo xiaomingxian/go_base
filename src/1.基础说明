@@ -2,3 +2,9 @@ package为基本管理单位
 必须有main包
 
 包导入必须使用，变量同理 否则会报错
+
+#========================以并发方式调用匿名函数func
+go 关键字开启并发执行
+go func(message string) {
+		messages <- message // 存消息
+	}("Ping!")

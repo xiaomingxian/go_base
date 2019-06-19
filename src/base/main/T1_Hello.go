@@ -11,12 +11,52 @@ func main() {
 	//运算符
 	//yunSuan()
 	//条件语句
-	caseYu() //select 未写
+	//caseYu()
+	//	select与并发
+	seAndBf()
 
+}
+
+func seAndBf() {
+	//	send、receive操作是针对channel的
+	//	send ： ch <- a
+	//receive: a := <- ch
+	//go开启并发执行
+	//就是在做goroutine之间的内存共享---宏观上来讲，信道有点像其他语言中的队列（queue），遵循先进先出的规则。
+	messages := make(chan string)
+	go func(message string) {
+		messages <- message // 存消息
+	}("Ping!")
+
+	fmt.Println(<-messages) // 取消息
+	//--------------------------------------------------------------
+	//select
+	//得初始化
+	var c1, c2, c3 chan int = make(chan int), make(chan int), make(chan int)
+	var i1, i2 int
+	go func(value int) {
+		c1 <- value
+	}(10)
+	//fmt.Println(<-c1)
+	select {
+	case i1 = <-c1:
+		fmt.Printf("received ", i1, " from c1\n")
+	case c2 <- i2:
+		fmt.Printf("sent ", i2, " to c2\n")
+	case i3, ok := <-c3:
+		if ok {
+			fmt.Printf("received ", i3, " from c3\n")
+		} else {
+			fmt.Printf("c3 is closed\n")
+		}
+	default:
+		fmt.Printf("no communication\n")
+	}
 }
 func caseYu() {
 	//if else  if嵌套
 	//没有三目运算
+	//switch
 	var a = 1
 	switch a {
 	case 1:
@@ -25,7 +65,6 @@ func caseYu() {
 		fmt.Println(a)
 	case 3:
 		fmt.Println(a)
-
 	}
 
 }
@@ -89,10 +128,10 @@ func changliang() {
 
 	fmt.Println("------------- 二进制测试 -------------")
 	const (
-		xa = 1 << iota //左移0位-->1
-		j  = 3 << iota //左移1--->6
-		k              //6 左移 2位-->12
-		i              //12 左移 3位-->24
+		xa = 1 << iota //左移0位-->1====>1*2^0
+		j  = 3 << iota //左移1--->6===>3*2^1
+		k              //左移2位-->3<<2==>3*2^2
+		i              //左移3位-->3<<3==>3*2^3
 	)
 	fmt.Println(xa, j, k, i)
 }
