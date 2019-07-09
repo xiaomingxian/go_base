@@ -13,11 +13,11 @@ func main() {
 	//条件语句
 	//caseYu()
 	//select与并发
-	//seAndBf()
+	seAndBf()
 	//循环
 	//xunHuan()
 	//数组
-	shuZ()
+	//shuZ()
 }
 
 func shuZ() {
@@ -60,7 +60,6 @@ LOOP:
 	nums := [5]int{1, 2, 3, 4, 5}
 	for i, j := range nums {
 		fmt.Printf("索引%d,元素%d\n", i, j)
-
 	}
 }
 
