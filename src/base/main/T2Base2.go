@@ -23,22 +23,9 @@ func main() {
 	ming := niMing(5, 1)
 	m1, m2 := ming()
 	fmt.Println("--------->匿名函数：", m1, m2)
-	//参数类型为数组
-	ints := [2]int{1, 2}
-	ints2 := []int{1, 2, 3}
-	shuZCan(ints)
-	shuZCan2(ints2)
-}
-
-//参数是数组
-func shuZCan(s1 [2]int) {
 
 }
 
-//参数是数组
-func shuZCan2(s1 []int) {
-
-}
 func niMing(x, y int) func() (int, int) {
 	return func() (i int, i2 int) {
 		return y, x

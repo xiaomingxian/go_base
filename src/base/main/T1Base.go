@@ -13,19 +13,10 @@ func main() {
 	//条件语句
 	//caseYu()
 	//select与并发
-	seAndBf()
+	//seAndBf()
 	//循环
 	//xunHuan()
-	//数组
-	//shuZ()
-}
 
-func shuZ() {
-	//初始值0
-	var sz [10]int
-	fmt.Println(sz)
-	var sz2 = [...]int{1, 2, 3, 4, 5}
-	fmt.Println(sz2)
 }
 
 func xunHuan() {
